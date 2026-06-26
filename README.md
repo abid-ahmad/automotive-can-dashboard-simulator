@@ -35,7 +35,7 @@ The demonstration video will include:
 # System Architecture
 
 <p align="center">
-<img src="diagrams/system_architecture.png" width="900">
+<img src="diagrams/system_architecture.png.png" width="900">
 </p>
 
 ---
@@ -43,7 +43,7 @@ The demonstration video will include:
 # Wiring Diagram
 
 <p align="center">
-<img src="diagrams/system_wiring_diagram.png" width="1000">
+<img src="diagrams/system_wiring_diagram.png.png" width="1000">
 </p>
 
 ---
