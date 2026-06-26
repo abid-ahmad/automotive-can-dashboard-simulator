@@ -11,7 +11,7 @@ The **Automotive CAN Dashboard Simulator** is a real-time embedded systems proje
 
 The system uses **two ESP32 development boards**, **two MCP2515 CAN controllers**, and an **SSD1306 OLED display** to demonstrate how vehicle information is transmitted, decoded, and displayed across a CAN network.
 
-The transmitter ECU reads live analog inputs from potentiometers, converts them into simulated vehicle data, packages the information into multiple CAN messages, and transmits it over the CAN bus. The dashboard ECU receives the messages, decodes the data, updates the OLED display, and monitors vehicle warning conditions.
+The transmitter ECU reads live analog inputs from potentiometers, converts them into simulated vehicle data, packages the information into multiple CAN frames using separate CAN message IDs, and transmits it over the CAN bus. The dashboard ECU receives the messages, decodes the data, updates the OLED display, and monitors vehicle warning conditions.
 
 ---
 
@@ -49,21 +49,20 @@ A complete walkthrough demonstrating:
 
 ## Features
 
-* Dual ESP32 ECU architecture
-* Real-time CAN Bus communication (500 kbps)
-* Multiple CAN Message IDs
-* OLED dashboard display
-* Real-time RPM simulation
-* Vehicle speed simulation
-* Engine temperature monitoring
-* Battery voltage monitoring
-* Fuel level monitoring
-* Potentiometer-based throttle simulation
-* Potentiometer-based fuel level simulation
-* Engine Overheat Diagnostic (DTC P0217)
-* Low Fuel warning
-* Low Battery indicator
-* CAN communication loss detection
+Dual ESP32 ECU architecture
+Real-time CAN Bus communication (500 kbps)
+Multiple CAN Message IDs
+Real-time sensor simulation
+OLED dashboard display
+RPM simulation
+Vehicle speed simulation
+Engine temperature monitoring
+Battery voltage monitoring
+Fuel level monitoring
+Engine Overheat Diagnostic (DTC P0217)
+Low Fuel warning
+Low Battery indicator
+CAN communication loss detection
 
 ---
 
@@ -131,7 +130,7 @@ The dashboard ESP32 receives incoming CAN messages and:
 | CAN ID    | Description        | Data                           |
 | --------- | ------------------ | ------------------------------ |
 | **0x100** | Engine ECU         | RPM, Speed, Engine Temperature |
-| **0x200** | Vehicle Status ECU | Battery Voltage, Fuel Level    |
+| **0x200** | Body ECU           | Battery Voltage, Fuel Level    |
 
 Using multiple CAN IDs better represents how different ECUs communicate on a real automotive CAN network.
 
@@ -289,14 +288,13 @@ Automotive-CAN-Dashboard-Simulator
 
 Potential future enhancements include:
 
-* Additional ECU nodes
-* CAN data logging
-* OBD-II integration
-* Bluetooth connectivity
-* Wi-Fi dashboard
-* Mobile application support
-* SD card logging
-* Real automotive sensors
+- SD card CAN logging
+- Additional ECU nodes
+- OBD-II integration
+- Bluetooth connectivity
+- Wi-Fi dashboard
+- Mobile application support
+- Real automotive sensors
 
 ---
 
