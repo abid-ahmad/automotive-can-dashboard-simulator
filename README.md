@@ -1,4 +1,4 @@
-# Automotive CAN Dashboard Simulator
+**# Automotive CAN Dashboard Simulator
 
 > **Status:** 🚧 **Project in Progress**
 > The project is fully functional. I am currently adding final documentation, hardware photos, wiring diagrams, and a demonstration video.
@@ -283,3 +283,4 @@ Wayne State University
 **GitHub:** https://github.com/abid-ahmad
 
 **LinkedIn:** https://www.linkedin.com/in/-abid-ahmad-/
+**
