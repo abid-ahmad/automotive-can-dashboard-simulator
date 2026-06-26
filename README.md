@@ -1,12 +1,11 @@
 # Automotive CAN Dashboard Simulator
 
-> **Status:** 🚧 Project in Progress
->
-> The hardware and software are fully functional. I am currently adding final project photos, demonstration videos, and documentation.
+> **Status:** 🚧 **Project in Progress**
+> The project is fully functional. I am currently adding final documentation, hardware photos, wiring diagrams, and a demonstration video.
 
 ---
 
-# Overview
+## Overview
 
 The **Automotive CAN Dashboard Simulator** is a real-time embedded systems project that simulates communication between automotive Electronic Control Units (ECUs) using a Controller Area Network (CAN).
 
@@ -16,180 +15,232 @@ The transmitter ECU reads live analog inputs from potentiometers, converts them 
 
 ---
 
-# Demo Video
+## Demo Video
 
 🎥 **Coming Soon**
 
-The demonstration video will include:
+A complete walkthrough demonstrating:
 
-- Hardware overview
-- System architecture
-- Wiring explanation
-- Live dashboard operation
-- CAN communication
-- Diagnostic warnings
-- Complete project walkthrough
+* Hardware overview
+* System architecture
+* Wiring explanation
+* Live dashboard operation
+* CAN communication
+* Diagnostic warnings
+* Full project explanation
 
 ---
 
-# System Architecture
+## System Architecture
 
 <p align="center">
-<img src="diagrams/system_architecture.png.png" width="900">
+<img src="diagrams/system_architecture.png" width="900">
 </p>
 
 ---
 
-# Wiring Diagram
+## Wiring Diagram
 
 <p align="center">
-<img src="diagrams/system_wiring_diagram.png.png" width="1000">
+<img src="diagrams/system_wiring_diagram.png" width="1000">
 </p>
 
 ---
 
-# Features
+## Features
 
-- Dual ESP32 ECU architecture
-- Real-time CAN Bus communication (500 kbps)
-- Multiple CAN Message IDs
-- OLED dashboard display
-- Real-time RPM simulation
-- Vehicle speed simulation
-- Engine temperature monitoring
-- Battery voltage monitoring
-- Fuel level monitoring
-- Potentiometer-based throttle simulation
-- Potentiometer-based fuel level simulation
-- Engine Overheat Diagnostic (DTC P0217)
-- Low Fuel warning
-- Low Battery indicator
-- CAN communication loss detection
-
----
-
-# Hardware
-
-| Component | Quantity |
-|-----------|---------:|
-| ESP32 Development Board | 2 |
-| MCP2515 CAN Controller | 2 |
-| SSD1306 OLED Display | 1 |
-| Potentiometer | 2 |
-| Breadboard | 2 |
-| Jumper Wires | Multiple |
+* Dual ESP32 ECU architecture
+* Real-time CAN Bus communication (500 kbps)
+* Multiple CAN Message IDs
+* OLED dashboard display
+* Real-time RPM simulation
+* Vehicle speed simulation
+* Engine temperature monitoring
+* Battery voltage monitoring
+* Fuel level monitoring
+* Potentiometer-based throttle simulation
+* Potentiometer-based fuel level simulation
+* Engine Overheat Diagnostic (DTC P0217)
+* Low Fuel warning
+* Low Battery indicator
+* CAN communication loss detection
 
 ---
 
-# Software
+## Hardware
 
-- Arduino IDE
-- Embedded C++
-- MCP_CAN Library
-- Adafruit GFX Library
-- Adafruit SSD1306 Library
+| Component               | Quantity |
+| ----------------------- | -------- |
+| ESP32 Development Board | 2        |
+| MCP2515 CAN Controller  | 2        |
+| SSD1306 OLED Display    | 1        |
+| Potentiometer           | 2        |
+| Breadboard              | 2        |
+| Jumper Wires            | Multiple |
 
 ---
 
-# How It Works
+## Software
 
-## Transmitter ECU
+* Arduino IDE
+* Embedded C++
+* MCP_CAN Library
+* Adafruit GFX Library
+* Adafruit SSD1306 Library
 
-The transmitter continuously reads two potentiometers.
+---
 
-### Throttle Potentiometer
+## How It Works
+
+### Transmitter ECU
+
+The transmitter ESP32 continuously reads two potentiometers.
+
+**Throttle Potentiometer**
 
 Controls:
 
-- Engine RPM (800–6000 RPM)
-- Vehicle Speed (0–120 MPH)
-- Engine Temperature (70–110 °C)
+* Engine RPM (800–6000 RPM)
+* Vehicle Speed (0–120 MPH)
+* Engine Temperature (70–110 °C)
 
-### Fuel Potentiometer
+**Fuel Potentiometer**
 
 Controls:
 
-- Fuel Level (0–100%)
+* Fuel Level (0–100%)
 
-The ESP32 packages this information into multiple CAN frames and transmits the messages over the CAN bus.
-
----
-
-## Dashboard ECU
-
-The dashboard ECU continuously listens for incoming CAN messages.
-
-After receiving each message it:
-
-- Decodes CAN data
-- Updates the OLED dashboard
-- Checks diagnostic conditions
-- Displays vehicle warnings
-- Detects CAN communication loss
+The transmitter packages this information into CAN messages and sends them across the CAN bus.
 
 ---
 
-# CAN Message IDs
+### Dashboard ECU
 
-| CAN ID | Description | Data |
-|---------|-------------|------|
-| **0x100** | Engine ECU | RPM, Speed, Engine Temperature |
-| **0x200** | Vehicle Status ECU | Battery Voltage, Fuel Level |
+The dashboard ESP32 receives incoming CAN messages and:
 
-Using multiple CAN IDs better represents how different ECUs communicate in a real automotive CAN network.
-
----
-
-# Dashboard Functions
-
-The OLED dashboard continuously displays:
-
-- Engine RPM
-- Vehicle Speed
-- Engine Temperature
-- Battery Voltage
-- Fuel Level
-
-Values update in real time as CAN messages are received.
+* Decodes the data
+* Updates the OLED dashboard
+* Checks for warning conditions
+* Displays diagnostic information when necessary
+* Detects CAN communication loss
 
 ---
 
-# Diagnostic Features
+## CAN Message IDs
 
-## Engine Overheat (DTC P0217)
+| CAN ID    | Description        | Data                           |
+| --------- | ------------------ | ------------------------------ |
+| **0x100** | Engine ECU         | RPM, Speed, Engine Temperature |
+| **0x200** | Vehicle Status ECU | Battery Voltage, Fuel Level    |
+
+Using multiple CAN IDs better represents how different ECUs communicate on a real automotive CAN network.
+
+---
+
+## Dashboard Display
+
+The OLED dashboard displays:
+
+* Engine RPM
+* Vehicle Speed
+* Engine Temperature
+* Battery Voltage
+* Fuel Level
+
+Values update continuously as new CAN messages are received.
+
+---
+
+## Diagnostics
+
+### Engine Overheat (DTC P0217)
 
 When engine temperature reaches **100 °C or higher**, the dashboard displays:
 
-- ENGINE OVERHEAT
-- Diagnostic Trouble Code **P0217**
+* ENGINE OVERHEAT
+* Diagnostic Trouble Code **P0217**
 
-The warning automatically clears once the temperature returns below the threshold.
-
----
-
-## Low Fuel Warning
-
-When fuel level drops to **20% or lower**, the dashboard displays a Low Fuel warning.
-
-The warning automatically clears when fuel rises above the threshold.
+The warning clears automatically once the temperature returns below the threshold.
 
 ---
 
-## Low Battery Indicator
+### Low Fuel
 
-Battery voltage is continuously monitored.
+When fuel level drops to **20% or lower**, a Low Fuel warning is displayed.
 
-When voltage falls to **11.5 V or lower**, the dashboard displays a Low Battery indicator.
+The warning clears automatically once the fuel level rises above the threshold.
 
 ---
 
-## CAN Communication Loss
+### Low Battery
+
+When battery voltage drops to **11.5 V or lower**, the dashboard displays a Low Battery indicator.
+
+---
+
+### CAN Communication Loss
 
 If no CAN messages are received for more than **3 seconds**, the dashboard displays:
 
-```text
+```
 NO CAN SIGNAL
-Repository Structure
+```
+
+---
+
+## Project Photos
+
+### Complete System
+
+<p align="center">
+<img src="images/complete_setup.jpg" width="750">
+</p>
+
+---
+
+### Transmitter ECU
+
+<p align="center">
+<img src="images/transmitter.jpg" width="500">
+</p>
+
+---
+
+### Dashboard ECU
+
+<p align="center">
+<img src="images/receiver.jpg" width="500">
+</p>
+
+---
+
+### Dashboard Display
+
+<p align="center">
+<img src="images/dashboard.jpg" width="450">
+</p>
+
+---
+
+### Engine Overheat Warning
+
+<p align="center">
+<img src="images/overheat_warning.jpg" width="450">
+</p>
+
+---
+
+### Low Fuel Warning
+
+<p align="center">
+<img src="images/low_fuel_warning.jpg" width="450">
+</p>
+
+---
+
+## Repository Structure
+
+```
 Automotive-CAN-Dashboard-Simulator
 │
 ├── transmitter_esp32/
@@ -198,46 +249,64 @@ Automotive-CAN-Dashboard-Simulator
 ├── receiver_dashboard_esp32/
 │   └── receiver_dashboard_esp32.ino
 │
-├── images/
-│
 ├── diagrams/
 │   ├── system_architecture.png
-│   └── automotive_can_dashboard_wiring_diagram.png
+│   └── system_wiring_diagram.png
+│
+├── images/
+│   ├── complete_setup.jpg
+│   ├── transmitter.jpg
+│   ├── receiver.jpg
+│   ├── dashboard.jpg
+│   ├── overheat_warning.jpg
+│   └── low_fuel_warning.jpg
 │
 ├── LICENSE
 └── README.md
-Skills Demonstrated
-Embedded Systems
-Embedded C++
-ESP32 Development
-Controller Area Network (CAN)
-MCP2515 CAN Controller
-SPI Communication
-I²C Communication
-Analog-to-Digital Conversion (ADC)
-Real-Time Embedded Programming
-Automotive Diagnostics
-Hardware Integration
-Embedded Debugging
-Future Improvements
+```
+
+---
+
+## Skills Demonstrated
+
+* Embedded Systems
+* Embedded C++
+* ESP32 Programming
+* Controller Area Network (CAN)
+* MCP2515 CAN Controller
+* SPI Communication
+* I²C Communication
+* Analog-to-Digital Conversion (ADC)
+* Real-Time Embedded Programming
+* Automotive Diagnostics (DTC)
+* Sensor Simulation
+* Hardware Integration
+* Embedded Debugging
+
+---
+
+## Future Improvements
 
 Potential future enhancements include:
 
-Additional ECU nodes
-CAN data logging
-OBD-II integration
-Bluetooth connectivity
-Wi-Fi dashboard
-Mobile application support
-SD card logging
-Real automotive sensors
-Author
+* Additional ECU nodes
+* CAN data logging
+* OBD-II integration
+* Bluetooth connectivity
+* Wi-Fi dashboard
+* Mobile application support
+* SD card logging
+* Real automotive sensors
 
-Abid Ahmad
+---
+
+## Author
+
+**Abid Ahmad**
 
 Electrical & Computer Engineering
 Wayne State University
 
-GitHub: https://github.com/abid-ahmad
+**GitHub:** https://github.com/abid-ahmad
 
-LinkedIn: (Add your LinkedIn profile URL here once available.)
+**LinkedIn:** *(Add your LinkedIn profile URL here once available.)*
