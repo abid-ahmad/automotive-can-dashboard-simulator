@@ -304,9 +304,9 @@ Potential future enhancements include:
 
 **Abid Ahmad**
 
-Electrical & Computer Engineering
+Electrical & Computer Engineering  
 Wayne State University
 
-**GitHub:** https://github.com/abid-ahmad
+**GitHub:** [abid-ahmad](https://github.com/abid-ahmad)
 
-**LinkedIn:** *(Add your LinkedIn profile URL here once available.)*
+**LinkedIn:** [Abid Ahmad](https://www.linkedin.com/in/-abid-ahmad-/)
