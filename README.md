@@ -189,3 +189,55 @@ If no CAN messages are received for more than **3 seconds**, the dashboard displ
 
 ```text
 NO CAN SIGNAL
+Repository Structure
+Automotive-CAN-Dashboard-Simulator
+│
+├── transmitter_esp32/
+│   └── transmitter_esp32.ino
+│
+├── receiver_dashboard_esp32/
+│   └── receiver_dashboard_esp32.ino
+│
+├── images/
+│
+├── diagrams/
+│   ├── system_architecture.png
+│   └── automotive_can_dashboard_wiring_diagram.png
+│
+├── LICENSE
+└── README.md
+Skills Demonstrated
+Embedded Systems
+Embedded C++
+ESP32 Development
+Controller Area Network (CAN)
+MCP2515 CAN Controller
+SPI Communication
+I²C Communication
+Analog-to-Digital Conversion (ADC)
+Real-Time Embedded Programming
+Automotive Diagnostics
+Hardware Integration
+Embedded Debugging
+Future Improvements
+
+Potential future enhancements include:
+
+Additional ECU nodes
+CAN data logging
+OBD-II integration
+Bluetooth connectivity
+Wi-Fi dashboard
+Mobile application support
+SD card logging
+Real automotive sensors
+Author
+
+Abid Ahmad
+
+Electrical & Computer Engineering
+Wayne State University
+
+GitHub: https://github.com/abid-ahmad
+
+LinkedIn: (Add your LinkedIn profile URL here once available.)
