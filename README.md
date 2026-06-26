@@ -335,6 +335,6 @@ This project demonstrates experience with:
 Electrical & Computer Engineering  
 Wayne State University
 
-GitHub: *(Add your GitHub profile link here.)*
+GitHub: *([Add your GitHub profile link here](https://github.com/abid-ahmad).)*
 
-LinkedIn: *(Add your LinkedIn profile link here.)*
+LinkedIn: *(LinkedIn: *(inkedin.com/in/-abid-ahmad-)*.)*
