@@ -75,7 +75,7 @@ A complete walkthrough demonstrating:
 | MCP2515 CAN Controller  | 2        |
 | SSD1306 OLED Display    | 1        |
 | Potentiometer           | 2        |
-| Breadboard              | 2        |
+| Breadboard              | 1        |
 | Jumper Wires            | Multiple |
 
 ---
