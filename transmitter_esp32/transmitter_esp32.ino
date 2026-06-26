@@ -11,7 +11,7 @@
 // this potentiometer acts like the throttle input
 #define THROTTLE_PIN 34
 
-// this potentiometer acts like the fuel level input
+// this potentiometer acts like the fuel level input 
 #define FUEL_PIN 35
 
 // create the can object and tell it which cs pin to use
