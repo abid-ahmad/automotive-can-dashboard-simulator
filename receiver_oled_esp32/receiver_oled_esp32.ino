@@ -1,7 +1,7 @@
 // include spi because the esp32 talks to the mcp2515 can module using spi
 #include <SPI.h>
 
-// include the can library for the mcp2515 module
+// include the can library for the mcp2515 module  
 #include <mcp_can.h>
 
 // include wire because the oled uses i2c communication
