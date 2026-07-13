@@ -200,7 +200,7 @@ NO CAN SIGNAL
 ### Transmitter ECU
 
 <p align="center">
-<img src="images/transmitter.jpg" width="500">
+<img src="images/transmitter.JPG" width="500">
 </p>
 
 ---
