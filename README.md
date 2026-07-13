@@ -192,7 +192,7 @@ NO CAN SIGNAL
 ### Complete System
 
 <p align="center">
-<img src="images/complete_setup.jpg" width="750">
+<img src="images/complete_setup.JPG" width="750">
 </p>
 
 ---
