@@ -208,7 +208,7 @@ NO CAN SIGNAL
 ### Dashboard ECU
 
 <p align="center">
-<img src="images/receiver.jpg" width="500">
+<img src="images/receiver.JPG" width="500">
 </p>
 
 ---
@@ -216,7 +216,7 @@ NO CAN SIGNAL
 ### Dashboard Display
 
 <p align="center">
-<img src="images/dashboard.jpg" width="450">
+<img src="images/dashboard.JPG" width="450">
 </p>
 
 ---
@@ -224,7 +224,7 @@ NO CAN SIGNAL
 ### Engine Overheat Warning
 
 <p align="center">
-<img src="images/overheat_warning.jpg" width="450">
+<img src="images/overheat_warning.JPG" width="450">
 </p>
 
 ---
@@ -232,7 +232,7 @@ NO CAN SIGNAL
 ### Low Fuel Warning
 
 <p align="center">
-<img src="images/low_fuel_warning.jpg" width="450">
+<img src="images/low_fuel_warning.JPG" width="450">
 </p>
 
 ---
